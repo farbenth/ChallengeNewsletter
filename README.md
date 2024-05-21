@@ -10,6 +10,24 @@ Este repositorio contiene un proyecto que consta de un backend y un frontend des
 - Docker using:
   - `docker-compose up`
 
+# Verificación de Funcionalidad de Correo Electrónico
+
+## Instrucciones
+
+1. Visita el sitio web de [Ethereal](https://ethereal.email/).
+2. Inicia sesión con las siguientes credenciales:
+   - **Usuario**: leila.ortiz@ethereal.email
+   - **Contraseña**: 7gmRYMk8yxE6byCXxh
+
+## Descripción
+
+Ethereal es un servicio SMTP falso diseñado para pruebas de correo electrónico. Permite enviar correos electrónicos simulados y verificar su contenido sin enviarlos realmente a los destinatarios.
+
+## Enlaces
+
+- [Ethereal](https://ethereal.email/)
+- [Documentación de Ethereal](https://ethereal.email/docs/)
+
 ## Backend (Carpeta service)
 
 El backend está desarrollado con node js y sigue una arquitectura limpia para mantener el código organizado y modular.
