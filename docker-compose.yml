@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  mongo-db:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo-user
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - 27017:27017
+  backend_challenge:
+    image: backend_challenge:latest
+    container_name: backend_challenge
+    build:
+      context: ./service
+      dockerfile: Dockerfile
+    ports:
+      - "3100:3100"
+    environment:
+      MONGO_URL: mongodb://mongo-user:123456@mongo-db:27017
+      MONGO_DB_NAME: newsletters
+      HOST_SMTP: smtp.ethereal.email
+      USER_SMTP: leila.ortiz@ethereal.email
+      PASS_SMTP: 7gmRYMk8yxE6byCXxh
+    depends_on:
+      - mongo-db
+  client_challenge:
+    image: client-challenge:latest
+    container_name: client_challenge
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend_challenge
